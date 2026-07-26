@@ -7,7 +7,7 @@ jobs:
     - name: Execute a linux command 
       run: echo "Hello All"
     - name: Execute command2
-      run: hostname -s 
+      run: hostname -s
   job2:
     runs-on: ubuntu-24.04
     steps:
@@ -17,3 +17,8 @@ jobs:
         cd mydemo
         touch file1
         ls
+    - name: Upload the file on github repo
+      uses:  actions/upload-artifact@v4
+      with:
+       name: file1
+       path: ./mydemo/file1
