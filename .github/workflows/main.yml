@@ -1,5 +1,5 @@
 name: This is my first workflow in github actions
-on: workflow_dispatch
+on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -7,4 +7,13 @@ jobs:
     - name: Execute a linux command 
       run: echo "Hello All"
     - name: Execute command2
-      run: hostname -s
+      run: hostname -s 
+  job2:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: run multiple commands
+      run: |
+        mkdir mydemo 
+        cd mydemo
+        touch file1
+        ls
